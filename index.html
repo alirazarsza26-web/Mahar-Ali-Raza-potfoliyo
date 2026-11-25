@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070908">
+  <meta name="description" content="Mahar Ali Raza — Student, Web Developer, Agriculture Enthusiast and Founder of Raza Industry.">
+  <title>Mahar Ali Raza | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#070908;--panel:#101713;--green:#8bb99b;--mint:#c1d8c6;--white:#f4f5ef;--muted:#a8b3aa;--line:#28372e}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+    body{margin:0;background:var(--bg);color:var(--white);font-family:"DM Sans",Arial,sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}button{font:inherit}
+    .grain{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:9;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(#070908ed,transparent);backdrop-filter:blur(8px)}
+    .brand{font-weight:700;letter-spacing:.17em;font-size:12px}.brand b{color:var(--green)}
+    .nav{display:flex;gap:clamp(12px,2.5vw,30px);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#d0d8d1}
+    .nav a{transition:color .25s}.nav a:hover{color:var(--green)}
+    .hero{height:100svh;min-height:650px;position:relative;display:grid;place-items:center;overflow:hidden;background:#060807}
+    .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 29%;opacity:.92;transform:scale(1.045);animation:heroIn 1.8s cubic-bezier(.2,.7,.2,1) forwards}
+    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,7,5,.12) 15%,rgba(4,7,5,.02) 48%,#070908 100%),linear-gradient(90deg,rgba(3,6,4,.4),transparent 65%)}
+    .hero-mark{position:absolute;z-index:2;left:6%;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;rotate:180deg;color:#dce9de77;font-size:9px;letter-spacing:.35em;text-transform:uppercase}
+    .hero-bottom{position:absolute;z-index:3;bottom:7%;left:0;right:0;text-align:center;color:#dce6dd;font-size:10px;letter-spacing:.32em;text-transform:uppercase;animation:fadeUp 1.5s .8s both}
+    .scroll-line{display:block;margin:15px auto 0;width:1px;height:48px;background:linear-gradient(var(--green),transparent);animation:pulse 1.8s infinite}
+    .section{max-width:1160px;margin:auto;padding:120px 7%}
+    .kicker{color:var(--green);font-size:10px;letter-spacing:.28em;text-transform:uppercase}
+    .display{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:clamp(53px,11vw,126px);line-height:.94;letter-spacing:-.055em;margin:24px 0}
+    h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(36px,6vw,70px);font-weight:500;line-height:1.04;letter-spacing:-.035em;margin:16px 0 24px}
+    h3{font-size:19px;margin:13px 0 9px}
+    .accent{color:var(--green)}.intro{font-size:clamp(17px,2vw,21px);line-height:1.85;color:var(--muted);max-width:760px}
+    .subline{color:var(--mint);font-size:12px;letter-spacing:.19em;text-transform:uppercase}
+    .section-rule{height:1px;background:linear-gradient(90deg,var(--green),transparent);margin:42px 0}
+    .reveal{opacity:0;transform:translateY(48px);filter:blur(4px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1),filter .9s ease}
+    .reveal.show{opacity:1;transform:translateY(0);filter:blur(0)}
+    .stagger>*{transition-delay:calc(var(--i,0)*110ms)}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:40px}
+    .card{position:relative;overflow:hidden;min-height:190px;padding:28px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#152019,#0b100d);transition:transform .35s,border-color .35s}
+    .card:hover{transform:translateY(-6px);border-color:#72977d}
+    .card .num{font-size:10px;letter-spacing:.2em;color:var(--green)}
+    .card p,.project p{font-size:14px;line-height:1.75;color:var(--muted);margin:0}
+    .wide-card{grid-column:1/-1;min-height:150px}
+    .project{border:1px solid var(--line);border-radius:18px;padding:30px;margin-top:16px;background:radial-gradient(ellipse at 100% 0%,#1a3022,#0b100d 62%)}
+    .project-tag{font-size:10px;color:var(--green);letter-spacing:.2em;text-transform:uppercase}
+    .project h3{font-family:"Playfair Display",Georgia,serif;font-size:29px;font-weight:500}
+    .quote{font-family:"Playfair Display",Georgia,serif;font-size:clamp(27px,4vw,46px);line-height:1.3;color:var(--mint);max-width:850px}
+    .contact{border-top:1px solid var(--line);background:radial-gradient(ellipse at 80% 15%,#1b3022 0%,#070908 65%)}
+    .contact-link{display:inline-flex;align-items:center;gap:14px;margin-top:18px;padding:14px 22px;border:1px solid var(--green);border-radius:40px;color:var(--mint);font-size:13px;letter-spacing:.08em;transition:background .3s}
+    .contact-link:hover{background:#203629}
+    footer{border-top:1px solid #1e2922;padding:25px 7%;display:flex;justify-content:space-between;gap:12px;color:#829087;font-size:11px;letter-spacing:.08em}
+    .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--green);z-index:12}
+    @keyframes heroIn{to{transform:scale(1)}}@keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{50%{opacity:.35;transform:scaleY(.75)}}
+    @media(min-width:900px){.hero-image{object-position:center 27%}.section{padding-top:155px;padding-bottom:155px}}
+    @media(max-width:600px){.topbar{padding:15px 5%}.brand{font-size:10px}.nav{gap:11px;font-size:9px}.hero{min-height:590px}.hero-image{object-fit:cover;object-position:54% 27%}.hero-mark{left:3%;font-size:8px}.section{padding:88px 7%}.cards{grid-template-columns:1fr}.wide-card{grid-column:auto}.card{min-height:unset;padding:24px}.project{padding:24px}footer{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none;filter:none}}
+  </style>
+</head>
+<body>
+<div class="progress" id="progress"></div><div class="grain"></div>
+<nav class="topbar">
+  <a class="brand" href="#home">MAHAR <b>ALI RAZA</b></a>
+  <div class="nav"><a href="#about">About</a><a href="#journey">Journey</a><a href="#work">Work</a><a href="#contact">Contact</a></div>
+</nav>
+<header class="hero" id="home">
+  <img class="hero-image" src="assets/mahar-ali-raza-portrait.png" alt="Mahar Ali Raza seated in a green velvet chair wearing a black three-piece suit">
+  <div class="hero-mark">Student · Creator · Entrepreneur</div>
+  <div class="hero-bottom">Scroll to discover my story<span class="scroll-line"></span></div>
+</header>
+<main>
+<section class="section" id="about">
+  <div class="reveal"><div class="kicker">01 / The person behind the work</div>
+  <div class="subline">A curious mind · A practical vision</div>
+  <h1 class="display">Mahar Ali<br><span class="accent">Raza.</span></h1>
+  <h2>Student <span class="accent">·</span> Web Developer <span class="accent">·</span> Entrepreneur</h2>
+  <p class="intro">I’m Mahar Ali Raza — a student with an interest in technology, web development, agriculture and building business ideas. I believe in learning by doing and turning ambition into useful work.</p></div>
+  <div class="section-rule reveal"></div>
+  <p class="quote reveal">“Learn with purpose. Build with vision. Grow with patience.”</p>
+</section>
+<section class="section" id="journey">
+  <div class="reveal"><div class="kicker">02 / My journey</div><h2>Different fields.<br><span class="accent">One vision.</span></h2><p class="intro">My interests connect education, technology, agriculture and business. Each field teaches a different way to solve problems and create value.</p></div>
+  <div class="cards stagger">
+    <article class="card reveal" style="--i:0"><div class="num">01 — EDUCATION</div><h3>Student</h3><p>Continuously learning and developing my knowledge, skills and confidence through study and practical experience.</p></article>
+    <article class="card reveal" style="--i:1"><div class="num">02 — TECHNOLOGY</div><h3>Web Development</h3><p>Interested in creating responsive websites, exploring modern web tools and bringing digital ideas to life.</p></article>
+    <article class="card reveal" style="--i:2"><div class="num">03 — AGRICULTURE</div><h3>Agriculture & Farming</h3><p>Connected with farming and agriculture, with an interest in practical work and opportunities to improve the sector.</p></article>
+    <article class="card reveal" style="--i:3"><div class="num">04 — BUSINESS</div><h3>Raza Industry</h3><p>A business vision focused on building opportunities across technology, products and future ventures.</p></article>
+    <article class="card wide-card reveal" style="--i:4"><div class="num">05 — LEADERSHIP</div><h3>CEO Mindset & Entrepreneurial Vision</h3><p>Thinking ahead, planning ideas and working toward building something meaningful through consistency, responsibility and learning.</p></article>
+  </div>
+</section>
+<section class="section" id="work">
+  <div class="reveal"><div class="kicker">03 / Building and creating</div><h2>My work &<br><span class="accent">ambitions.</span></h2><p class="intro">A growing portfolio of learning, digital projects and business ideas. More projects and details can be added as they are completed.</p></div>
+  <article class="project reveal"><div class="project-tag">Web / Personal Brand</div><h3>Mahar Ali Raza — Portfolio</h3><p>A cinematic, mobile-first personal website designed to introduce my work and interests through a visual story and scroll-based reveals.</p></article>
+  <article class="project reveal"><div class="project-tag">Business / Vision</div><h3>Raza Industry</h3><p>A developing business identity with an interest in digital commerce, technology and practical business opportunities.</p></article>
+  <article class="project reveal"><div class="project-tag">Learning / Future</div><h3>Technology & Innovation</h3><p>Exploring web development and digital tools, with an ambition to keep learning and create useful solutions.</p></article>
+</section>
+<section class="section contact" id="contact">
+  <div class="reveal"><div class="kicker">04 / Let’s connect</div><h2>Every big idea<br>starts <span class="accent">somewhere.</span></h2><p class="intro">Have a project, an idea or an opportunity to discuss? Get in touch.</p>
+  <a class="contact-link" href="mailto:your-email@example.com">Contact Mahar Ali Raza <span>↗</span></a>
+  <p style="font-size:11px;color:#87948a;margin-top:18px">Before publishing, replace the sample email with your real email address.</p></div>
+</section>
+</main>
+<footer><span>© 2026 MAHAR ALI RAZA</span><span>STUDENT · WEB DEVELOPER · AGRICULTURE · RAZA INDUSTRY</span></footer>
+<script>
+const revealEls=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.13,rootMargin:'0px 0px -35px 0px'});
+ revealEls.forEach(el=>io.observe(el));
+}else{revealEls.forEach(el=>el.classList.add('show'))}
+const progress=document.getElementById('progress');
+function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%'}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script>
+</body>
+</html>
